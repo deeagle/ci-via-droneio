@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_ci_via_droneio_1683897243014-push-trigger-input-set
+  identifier: Build_ci_via_droneio_1683897243014pushtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: GithubConnectionTest
+  pipeline:
+    identifier: Build_ci_via_droneio_1683897243014
+    properties:
+      ci:
+        codebase:
+          build:
+            type: branch
+            spec:
+              branch: <+trigger.branch>
