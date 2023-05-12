@@ -1,0 +1,22 @@
+---
+
+kind: pipeline
+type: docker
+name: ci
+
+trigger:
+  event:
+    - push
+
+steps:
+  - name: linefeed-and-encoding
+    image: docdee/filecheck
+    commands:
+      - (! find . -maxdepth 1 -name "*.*" -not -type d -exec file "{}" ";" | grep "CRLF\|CR")
+      - (find . -maxdepth 1 -name "*.*" -not -type d -exec isutf8 "{}" "+")
+
+  - name: markdownlint-cli
+    image: node:current-alpine
+    commands:
+      - npm install -g markdownlint-cli
+      - markdownlint -i CHANGELOG.md **/*.md
