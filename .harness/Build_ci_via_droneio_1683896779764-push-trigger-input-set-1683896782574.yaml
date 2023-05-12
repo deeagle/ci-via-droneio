@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_ci_via_droneio_1683896779764-push-trigger-input-set
+  identifier: Build_ci_via_droneio_1683896779764pushtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: default_project
+  pipeline:
+    identifier: Build_ci_via_droneio_1683896779764
+    properties:
+      ci:
+        codebase:
+          build:
+            type: branch
+            spec:
+              branch: <+trigger.branch>
